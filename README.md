@@ -1,4 +1,4 @@
-# JavaScript Cie1931-Color-Converter
+# JavaScript CIE-1931-Color-Converter
 A simple JS  lib for converting rgb to cie1931 (Which Philips HUE Color lights use) and vice versa.
 
 - NO dependency
