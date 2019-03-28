@@ -206,15 +206,14 @@ class ColorConverter {
         return  closestColorPoints[closestColor];
     }
 
-    static xyBriToRgb(xy,bri){
+    static xyBriToRgb(x,y,bri){
         function getReversedGammaCorrectedValue(value){
             return value <= 0.0031308 ? 12.92 * value : (1.0 + 0.055) * Math.pow(value, (1.0 / 2.4)) - 0.055;
         }
 
-        if(Array.isArray(xy)){
-            xy = {
-                x: xy[0],
-                y: xy[1]
+            let xy = {
+                x: x,
+                y: y
             };
 
             let z = 1.0 - xy.x - xy.y;
