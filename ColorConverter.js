@@ -223,5 +223,4 @@ class ColorConverter {
 
             return {r: parseInt(r * 255), g: parseInt(g * 255), b: parseInt(b *255)};
         }
-    }
 }
