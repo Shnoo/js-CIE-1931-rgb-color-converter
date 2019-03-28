@@ -15,7 +15,7 @@ Note: *Color accuracy can differ depening on light capabilites.*
 
 Download the script [here](https://github.com/Shnoo/Philips-Hue-Color-Converter/blob/master/ColorConverter.js) and include it (unless you are packaging scripts somehow else)
 ```html
-<script src="path/to/ColorConverter.js</script>
+<script src="path/to/ColorConverter.js"></script>
 ```
 
 Do not include the script directly from GitHub (http://raw.github.com/...). The file is being served as text/plain and as such being blocked in Internet Explorer on Windows 7 for instance (because of the wrong MIME type). Bottom line: GitHub is not a CDN.
