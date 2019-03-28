@@ -3,7 +3,7 @@ A simple JS  lib for converting rgb to cie1931 (Which Philips HUE Color lights u
 
 - NO dependency
 - Automatically adjusts Colors based on light capability
-- Color correction supports a range of Philips lights
+- Color correction supports a range of Philips Hue lights
 - ECMAScript 6
 - Easy to use
 
