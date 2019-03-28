@@ -22,7 +22,7 @@ Do not include the script directly from GitHub (http://raw.github.com/...). The 
 
 ### NPM
 ```
-npm i cie-rgb-color-converter
+npm install cie-rgb-color-converter
 ```
 
 # Usage
