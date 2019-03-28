@@ -17,20 +17,20 @@ Do not include the script directly from GitHub (http://raw.github.com/...). The 
 
 # Usage
 
-### Convert RGB to XY for a Philips Hue Lights
+### Convert RGB to XY for a Philips Hue lights
 ```js
 let xy = ColorConverter.rgbToXy(red, green, blue, light.modelid);
 // xy = {x: xValue, y: yValue};
 ```
 
-### Convert RGB to XY for non Philips Lights
+### Convert RGB to XY for non Philips lights
 ```js
 let xy = ColorConverter.rgbToXy(red, green, blue);
 // xy = {x: xValue, y: yValue};
 ```
-*Note: Colors may be off due to gamut capabilities of the Light. This setting uses a default gamut range provided by Philips Hue Docs. This may exeed the lights capabilities, resulting in wrong colors depending on lights behaviour.*
+*Note: Colors may be off due to gamut capabilities of the Light. This setting uses a default gamut range provided by Philips Hue Docs. This may exceed the lights capabilities, resulting in wrong colors depending on lights behaviour.*
 
-### Convert XY + Brightness to RGB
+### Convert XY + bightness to RGB
 ```js
 let rgb = ColorConverter.xyBriToRgb(x ,y , brightness);
 // rgb =  {r: redValue, g: greenValue, b: blueValue}
