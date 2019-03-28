@@ -21,7 +21,7 @@ Do not include the script directly from GitHub (http://raw.github.com/...). The 
 
 # Usage
 
-### Convert RGB to XY for a Philips Hue lights
+### Convert RGB to XY for Philips Hue lights
 ```js
 let xy = ColorConverter.rgbToXy(red, green, blue, light.modelid);
 // xy = {x: xValue, y: yValue};
