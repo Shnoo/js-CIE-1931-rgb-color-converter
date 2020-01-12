@@ -1,55 +1,56 @@
+let gamutA = {
+		red: [0.704, 0.296],
+		green: [0.2151, 0.7106],
+		blue: [0.138, 0.08]
+	};
+
+let gamutB = {
+		red: [0.675, 0.322],
+		green: [0.409, 0.518],
+		blue: [0.167, 0.04]
+	};
+
+let gamutC = {
+		red: [0.692, 0.308],
+		green: [0.17, 0.7],
+		blue: [0.153, 0.048]
+	};
+
+let defaultGamut ={
+		red: [1.0, 0],
+		green: [0.0, 1.0],
+		blue: [0.0, 0.0]
+	};
+
+let philipsModels = {
+		LST001 : gamutA,
+		LLC010 : gamutA,
+		LLC011 : gamutA,
+		LLC012 : gamutA,
+		LLC006 : gamutA,
+		LLC005 : gamutA,
+		LLC007 : gamutA,
+		LLC014 : gamutA,
+		LLC013 : gamutA,
+
+		LCT001 : gamutB,
+		LCT007 : gamutB,
+		LCT002 : gamutB,
+		LCT003 : gamutB,
+		LLM001 : gamutB,
+
+		LCT010 : gamutC,
+		LCT014 : gamutC,
+		LCT015 : gamutC,
+		LCT016 : gamutC,
+		LCT011 : gamutC,
+		LLC020 : gamutC,
+		LST002 : gamutC,
+		LCT012 : gamutC,
+	};
+		
 class ColorConverter {
     static getLightColorGamutRange(modelId = null){
-        let gamutA = {
-                red: [0.704, 0.296],
-                green: [0.2151, 0.7106],
-                blue: [0.138, 0.08]
-            };
-
-        let gamutB = {
-                red: [0.675, 0.322],
-                green: [0.409, 0.518],
-                blue: [0.167, 0.04]
-            };
-
-        let gamutC = {
-                red: [0.692, 0.308],
-                green: [0.17, 0.7],
-                blue: [0.153, 0.048]
-            };
-
-        let defaultGamut ={
-                red: [1.0, 0],
-                green: [0.0, 1.0],
-                blue: [0.0, 0.0]
-            };
-
-        let philipsModels = {
-            LST001 : gamutA,
-            LLC010 : gamutA,
-            LLC011 : gamutA,
-            LLC012 : gamutA,
-            LLC006 : gamutA,
-            LLC005 : gamutA,
-            LLC007 : gamutA,
-            LLC014 : gamutA,
-            LLC013 : gamutA,
-
-            LCT001 : gamutB,
-            LCT007 : gamutB,
-            LCT002 : gamutB,
-            LCT003 : gamutB,
-            LLM001 : gamutB,
-
-            LCT010 : gamutC,
-            LCT014 : gamutC,
-            LCT015 : gamutC,
-            LCT016 : gamutC,
-            LCT011 : gamutC,
-            LLC020 : gamutC,
-            LST002 : gamutC,
-            LCT012 : gamutC,
-        };
 
         if(!!philipsModels[modelId]){
             return philipsModels[modelId];
@@ -220,7 +221,12 @@ class ColorConverter {
             r = getReversedGammaCorrectedValue(r);
             g = getReversedGammaCorrectedValue(g);
             b = getReversedGammaCorrectedValue(b);
+		    let red = parseInt(r * 255) > 255 ? 255: parseInt(r * 255);
+		    let green = parseInt(g * 255) > 255 ? 255: parseInt(g * 255);
+		    let blue = parseInt(b * 255) > 255 ? 255: parseInt(b * 255);
 
-            return {r: parseInt(r * 255), g: parseInt(g * 255), b: parseInt(b *255)};
+		    return {r: red, g: green, b: blue};
         }
 }
+
+export { ColorConverter as default}
