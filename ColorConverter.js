@@ -227,3 +227,5 @@ class ColorConverter {
 		return {r: red, g: green, b: blue};
 	}
 }
+
+module.exports = ColorConverter

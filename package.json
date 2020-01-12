@@ -1,0 +1,25 @@
+{
+  "name": "cie-rgb-color-converter",
+  "version": "1.0.2",
+  "description": "a color conversion lib for converting colors from cie 1931 to rgb and vice versa. Meant to be used with the philips hue Api.",
+  "main": "colorConverter.js",
+  "scripts": {
+	"test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+	"type": "git",
+	"url": "git+https://github.com/Shnoo/js-CIE-1931-rgb-color-converter.git"
+  },
+  "keywords": [
+	"philips",
+	"hue",
+	"color",
+	"converter"
+  ],
+  "author": "Shnoo",
+  "license": "MIT",
+  "bugs": {
+	"url": "https://github.com/Shnoo/js-CIE-1931-rgb-color-converter/issues"
+  },
+  "homepage": "https://github.com/Shnoo/js-CIE-1931-rgb-color-converter#readme"
+}
