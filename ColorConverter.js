@@ -1,5 +1,5 @@
 class ColorConverter {
-	static getLightColorGamutRange(modelId = null){
+	static getGamutRanges(){
 		let gamutA = {
 			red: [0.704, 0.296],
 			green: [0.2151, 0.7106],
@@ -23,6 +23,15 @@ class ColorConverter {
 			green: [0.0, 1.0],
 			blue: [0.0, 0.0]
 		};
+
+		return {"gamutA":gamutA,"gamutB": gamutB, "gamutC":gamutC,"default": defaultGamut}
+	}
+
+	static getLightColorGamutRange(modelId = null){
+		let ranges = ColorConverter.getGamutRanges();
+		let gamutA = ranges.gamutA;
+		let gamutB = ranges.gamutB;
+		let gamutC = ranges.gamutC;
 
 		let philipsModels = {
 			LST001 : gamutA,
@@ -55,7 +64,7 @@ class ColorConverter {
 			return philipsModels[modelId];
 		}
 
-		return defaultGamut;
+		return ranges.default;
 	}
 
 
@@ -91,7 +100,7 @@ class ColorConverter {
 	}
 
 	static xyIsInGamutRange(xy, gamut) {
-		gamut = gamut || ColorConverter.gamutC();
+		gamut = gamut || ColorConverter.getGamutRanges().gamutC;
 		if (Array.isArray(xy)) {
 			xy = {
 				x: xy[0],
@@ -224,6 +233,11 @@ class ColorConverter {
 		let red = parseInt(r * 255) > 255 ? 255: parseInt(r * 255);
 		let green = parseInt(g * 255) > 255 ? 255: parseInt(g * 255);
 		let blue = parseInt(b * 255) > 255 ? 255: parseInt(b * 255);
+
+		if (red <= 0 ) red = 0;
+		if (green <= 0 ) red = 0;
+		if (blue <= 0 ) red = 0;
+
 		return {r: red, g: green, b: blue};
 	}
 }
