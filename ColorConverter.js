@@ -233,6 +233,11 @@ class ColorConverter {
 		let red = parseInt(r * 255) > 255 ? 255: parseInt(r * 255);
 		let green = parseInt(g * 255) > 255 ? 255: parseInt(g * 255);
 		let blue = parseInt(b * 255) > 255 ? 255: parseInt(b * 255);
+
+		if (red <= 0 ) red = 0;
+		if (green <= 0 ) red = 0;
+		if (blue <= 0 ) red = 0;
+
 		return {r: red, g: green, b: blue};
 	}
 }
