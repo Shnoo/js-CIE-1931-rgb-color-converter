@@ -13,12 +13,18 @@ Note: *Color accuracy can differ depening on light capabilites.*
 
 # Installation
 
-Download the script [here](https://github.com/Shnoo/Philips-Hue-Color-Converter/blob/master/ColorConverter.js) and include it (unless you are packaging scripts somehow else)
+Download the script [here](https://github.com/Shnoo/js-CIE-1931-rgb-color-converter/blob/master/ColorConverter.js) and include it (unless you are packaging scripts somehow else)
+
 ```html
 <script src="path/to/ColorConverter.js"></script>
-
 ```
-Do not include the script directly from GitHub (http://raw.github.com/...). The file is being served as text/plain and as such being blocked in Internet Explorer on Windows 7 for instance (because of the wrong MIME type). Bottom line: GitHub is not a CDN.
+
+### CDN
+
+Alternatively, you can use a CDN hosted version of the script
+```html
+<script src="https://cdn.jsdelivr.net/npm/cie-rgb-color-converter"></script>
+```
 
 ### NPM
 ```
@@ -42,6 +48,6 @@ let xy = ColorConverter.rgbToXy(red, green, blue);
 
 ### Convert XY + bightness to RGB
 ```js
-let rgb = ColorConverter.xyBriToRgb(x ,y , brightness);
-// rgb =  {r: redValue, g: greenValue, b: blueValue}
+let rgb = ColorConverter.xyBriToRgb(x, y, brightness);
+// rgb = {r: redValue, g: greenValue, b: blueValue}
 ```
