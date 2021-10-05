@@ -213,15 +213,10 @@ class ColorConverter {
 			return value <= 0.0031308 ? 12.92 * value : (1.0 + 0.055) * Math.pow(value, (1.0 / 2.4)) - 0.055;
 		}
 
-		let xy = {
-			x: x,
-			y: y
-		};
-
-		let z = 1.0 - xy.x - xy.y;
+		let z = 1.0 - x - y;
 		let Y = bri / 255;
-		let X = (Y / xy.y) * xy.x;
-		let Z = (Y / xy.y) * z;
+		let X = (Y / y) * x;
+		let Z = (Y / y) * z;
 		let r = X * 1.656492 - Y * 0.354851 - Z * 0.255038;
 		let g = -X * 0.707196 + Y * 1.655397 + Z * 0.036152;
 		let b =  X * 0.051713 - Y * 0.121364 + Z * 1.011530;
