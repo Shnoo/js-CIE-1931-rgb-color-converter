@@ -213,15 +213,10 @@ class ColorConverter {
 			return value <= 0.0031308 ? 12.92 * value : (1.0 + 0.055) * Math.pow(value, (1.0 / 2.4)) - 0.055;
 		}
 
-		let xy = {
-			x: x,
-			y: y
-		};
-
-		let z = 1.0 - xy.x - xy.y;
+		let z = 1.0 - x - y;
 		let Y = bri / 255;
-		let X = (Y / xy.y) * xy.x;
-		let Z = (Y / xy.y) * z;
+		let X = (Y / y) * x;
+		let Z = (Y / y) * z;
 		let r = X * 1.656492 - Y * 0.354851 - Z * 0.255038;
 		let g = -X * 0.707196 + Y * 1.655397 + Z * 0.036152;
 		let b =  X * 0.051713 - Y * 0.121364 + Z * 1.011530;
@@ -230,14 +225,23 @@ class ColorConverter {
 		g = getReversedGammaCorrectedValue(g);
 		b = getReversedGammaCorrectedValue(b);
 
-		let red = parseInt(r * 255) > 255 ? 255: parseInt(r * 255);
-		let green = parseInt(g * 255) > 255 ? 255: parseInt(g * 255);
-		let blue = parseInt(b * 255) > 255 ? 255: parseInt(b * 255);
+		// Bring all negative components to zero
+		r = Math.max(r, 0);
+		g = Math.max(g, 0);
+		b = Math.max(b, 0);
 
-		red = Math.abs(red);
-		green = Math.abs(green);
-		blue = Math.abs(blue);
+		// If one component is greater than 1, weight components by that value
+		let max = Math.max(r, g, b);
+		if (max > 1) {
+		    r = r / max;
+		    g = g / max;
+		    b = b / max;
+		}
 
-		return {r: red, g: green, b: blue};
+		return {
+		    r: Math.floor(r * 255),
+		    g: Math.floor(g * 255),
+		    b: Math.floor(b * 255),
+		};
 	}
 }
