@@ -217,9 +217,11 @@ class ColorConverter {
 		let Y = bri / 255;
 		let X = (Y / y) * x;
 		let Z = (Y / y) * z;
-		let r = X * 1.656492 - Y * 0.354851 - Z * 0.255038;
-		let g = -X * 0.707196 + Y * 1.655397 + Z * 0.036152;
-		let b =  X * 0.051713 - Y * 0.121364 + Z * 1.011530;
+		let r = X * 1.612 - Y * 0.203 - Z * 0.302;
+		let g = -X * 0.509 + Y * 1.412 + Z * 0.066;
+		let b = X * 0.026 - Y * 0.072 + Z * 0.962;
+
+		
 
 		r = getReversedGammaCorrectedValue(r);
 		g = getReversedGammaCorrectedValue(g);
